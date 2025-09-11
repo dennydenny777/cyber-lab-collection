@@ -44,8 +44,8 @@ def generate_report(target, subdomains, alive_hosts, scan_results):
     report_content.append("📝 End of Report")
     report_content.append("=" * 60)
 
-    # Linux-friendly results folder
-    output_dir = os.path.expanduser("~/PROJECT/results")
+    # Save to results directory relative to the recon-tool folder
+    output_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "results")
     os.makedirs(output_dir, exist_ok=True)
 
     report_file = os.path.join(output_dir, f"recon_{target}.txt")
